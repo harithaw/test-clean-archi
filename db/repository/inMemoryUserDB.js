@@ -1,4 +1,4 @@
-const UserRepository = require("../entities/UserRepository");
+const UserRepository = require("../../entities/UserRepository");
 
 module.exports = class inMemoryUserDB extends UserRepository{
     constructor(){
@@ -14,7 +14,7 @@ module.exports = class inMemoryUserDB extends UserRepository{
         catch (error){
             throw new Error('Error Occurred');
         }
-
+        
         return user;
     }
 

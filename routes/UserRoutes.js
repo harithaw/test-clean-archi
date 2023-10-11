@@ -6,7 +6,9 @@ const UserRouter = (database) => {
 
     const controller = UserController(database);
 
-    router.route('/').post(controller.addNewUser);
+    router.route('/')
+        .post(controller.addNewUser)
+        .get(controller.getAllUsers);
 
     return router;
 }

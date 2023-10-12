@@ -1,4 +1,4 @@
-const user = require("../entities/Users");
+const user = require("../../entities/Users");
 
 function ViewAllUsers(userRepository){
     const users = userRepository.getAll();

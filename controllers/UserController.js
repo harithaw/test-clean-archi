@@ -1,5 +1,5 @@
-const {CreateUser} = require("../usecases/CreateUser");
-const {ViewAllUsers} = require("../usecases/ViewAllUsers");
+const {CreateUser} = require("../usecases/user/CreateUser");
+const {ViewAllUsers} = require("../usecases/user/ViewAllUsers");
 
 module.exports = (database) =>{
     const addNewUser = async(req, res) => {

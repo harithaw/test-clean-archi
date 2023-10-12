@@ -1,4 +1,4 @@
-const user = require("../entities/Users");
+const user = require("../../entities/Users");
 
 function CreateUser( username, password, firstname, dob, userRepository){
 

@@ -31,6 +31,7 @@ app.use(express.json());
 
 // app.use(keycloak.middleware());
 
+//localhost:3000/api/
 app.use("/api", UserRouter(db1))
 
 app.listen(3000, () => {

@@ -1,6 +1,6 @@
 const user = require("../../entities/Users");
 
-function CreateUser( username, password, firstname, dob, userRepository){
+async function CreateUser(username, password, firstname, dob, userRepository){
 
     //bussiness rule validations
     if(!username || !password || !firstname || !dob){
@@ -8,15 +8,12 @@ function CreateUser( username, password, firstname, dob, userRepository){
     }
 
     //create new user object
-    let newUser  = new user(username, password, firstname, dob);
+    let newUser  = new user(null, username, password, firstname, dob);
 
     //add new user to DB
-    userRepository.add(newUser);
-    
+    newUser = userRepository.add(newUser);
 
     return newUser;
 }
 
-module.exports = {
-    CreateUser
-}
+module.exports = CreateUser;

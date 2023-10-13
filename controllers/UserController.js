@@ -1,4 +1,4 @@
-const {CreateUser} = require("../usecases/user/CreateUser");
+const CreateUser = require("../usecases/user/CreateUser");
 const {ViewAllUsers} = require("../usecases/user/ViewAllUsers");
 
 module.exports = (database) =>{
@@ -7,15 +7,15 @@ module.exports = (database) =>{
         const { username, password, firstname, dob } = req.body;
     
         // call the usecase and pass the models
-        const newUser = CreateUser(username, password, firstname, dob, database);
+        const newUser = await CreateUser(username, password, firstname, dob, database);
 
         res.status(200).json(newUser);
     }
 
     const getAllUsers = async(req, res) => {
-        const allUsers = ViewAllUsers(database).then(users => {
-            res.status(200).json(users);
-        });
+        const allUsers = await ViewAllUsers(database);
+
+        res.status(200).json(allUsers);
     }
 
     return{

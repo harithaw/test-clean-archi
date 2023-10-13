@@ -9,6 +9,10 @@ const UserRouter = (database) => {
     router.route('/')
         .post(controller.addNewUser)
         .get(controller.getAllUsers);
+    
+    router.route('/:id')
+        .get(controller.getUser)
+        .delete(controller.deleteUser);
 
     return router;
 }

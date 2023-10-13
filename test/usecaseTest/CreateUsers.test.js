@@ -6,7 +6,7 @@ describe("Create User", () => {
     let db1;
 
     beforeEach(() => {
-        testUser = {id: 0, username : "testUser", password : "testPassword", firstname : "testMan", dob : "2000"}
+        testUser = {id: 1, username : "testUser", password : "testPassword", firstname : "testMan", dob : "2000"}
         db1 = new inMemoryUserDB();
     })
 

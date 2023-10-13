@@ -6,7 +6,7 @@ const db1 = new inMemoryUserDB();
 
 //mongoDB
 const connect = require("./db/mongodb/mongo");
-connect();
+// connect(); monogoCB connection
 const mongodbUser = require("./db/repository/mongodbUser");
 const db2 = new mongodbUser();
 

@@ -15,7 +15,7 @@ module.exports = class inMemoryUserDB extends UserRepository{
             throw new Error('Error Occurred');
         }
         
-        return user;
+        return this.users[this.users.length-1];
     }
 
     async getAll(){

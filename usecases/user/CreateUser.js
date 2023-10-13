@@ -4,7 +4,7 @@ function CreateUser( username, password, firstname, dob, userRepository){
 
     //bussiness rule validations
     if(!username || !password || !firstname || !dob){
-        throw new Error('validation failed');
+        throw new Error('parameter empty');
     }
 
     //create new user object

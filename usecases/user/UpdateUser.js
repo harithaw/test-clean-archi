@@ -1,22 +1,14 @@
 async function UpdateUser(id, data, userRepository){
-
-    const user = await userRepository.getById(id);
-
-    if (data.hasOwnProperty('username')) {
-        user.username = data.username;
+    if(!id){
+        throw new Error("id empty");
     }
 
-    if (data.hasOwnProperty('password')) {
-        user.password = data.password;
+    if(data && Object.keys(data).length === 0 && data.constructor === Object){
+        throw Error("no data to update");
     }
 
-    if (data.hasOwnProperty('firstname')) {
-        user.firstname = data.firstname;
-    }
-
-    if (data.hasOwnProperty('dob')) {
-        user.dob = data.dob;
-    }
+    //update user at database
+    const user = userRepository.updateById(id, data);
 
     return user;
 }

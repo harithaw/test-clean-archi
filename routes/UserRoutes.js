@@ -12,7 +12,8 @@ const UserRouter = (database) => {
     
     router.route('/:id')
         .get(controller.getUser)
-        .delete(controller.deleteUser);
+        .delete(controller.deleteUser)
+        .patch(controller.updateUser);
 
     return router;
 }

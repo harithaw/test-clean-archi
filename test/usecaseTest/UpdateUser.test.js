@@ -14,4 +14,14 @@ describe("Update User", () =>{
         expect( await UpdateUser(user2.id, {username:"editTestUser02", password : "editTestPassword2"}, db1)).toEqual(user2);
     })
 
+    test("should get undefined for missing user", async () => {
+        expect( await UpdateUser(4, {username:"editUserName"}, db1)).toBe(undefined);
+    })
+
+    test("should throw an error for missing data", () => {
+        expect( async () =>{
+            await UpdateUser(user2.id, {}, db1)
+        }).rejects.toThrow("no data to update");
+    })
+
 })

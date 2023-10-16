@@ -1,7 +1,7 @@
-async function ViewAllUsers(userRepository){
-    const users = userRepository.getAll();
+async function ViewAllUsers (userRepository) {
+  const users = userRepository.getAll()
 
-    return users;
+  return users
 }
 
-module.exports = ViewAllUsers;
+module.exports = ViewAllUsers

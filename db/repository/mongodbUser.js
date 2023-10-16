@@ -1,27 +1,26 @@
-const UserRepository = require("../../entities/UserRepository");
-const User = require('../mongodb/schema/UserSchema');
+const UserRepository = require('../../entities/UserRepository')
+const User = require('../mongodb/schema/UserSchema')
 
 module.exports = class mongodbUser extends UserRepository {
-    constructor(){
-        super();
+  constructor () {
+    super()
+  }
+
+  async add (user) {
+    const { username, password, firstname, dob } = user
+
+    try {
+      await User.create({ username, password, firstname, dob })
+    } catch (error) {
+      throw new Error('Error Occurred')
     }
 
-    async add(user){
-        const { username, password, firstname, dob } = user;
+    return user
+  }
 
-        try{
-            await User.create({ username, password, firstname, dob });
-        }
-        catch(error){
-            throw new Error('Error Occurred');
-        }
+  async getAll () {
+    const user = await User.find({})
 
-        return user
-    }
-
-    async getAll(){
-        const user = await User.find({});
-
-        return user;
-    }
+    return user
+  }
 }

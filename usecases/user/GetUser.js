@@ -1,12 +1,12 @@
-async function GetUser(id, userRepository){
-    if(!id){
-        throw new Error("id empty");
-    }
+async function GetUser (id, userRepository) {
+  if (!id) {
+    throw new Error('id empty')
+  }
 
-    //get user from database
-    const user = userRepository.getById(id);
+  // get user from database
+  const user = userRepository.getById(id)
 
-    return user;
+  return user
 }
 
-module.exports = GetUser;
+module.exports = GetUser

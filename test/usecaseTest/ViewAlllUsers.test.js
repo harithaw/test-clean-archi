@@ -1,19 +1,20 @@
-const ViewAllUsers = require("../../usecases/user/ViewAllUsers");
-const inMemoryUserDB = require("../../db/repository/inMemoryUserDB");
+/* eslint-disable no-undef */
+const ViewAllUsers = require('../../usecases/user/ViewAllUsers')
+const InMemoryUserDB = require('../../db/repository/inMemoryUserDB')
 
-describe("Get All Users", () => {
-    //dummy data
-    const user1 = {id: 1, username : "testUser01", password : "testPassword1", firstname : "testMan", dob : "2000"}
-    const user2 = {id: 2, username : "testUser02", password : "testPassword2", firstname : "testWomen", dob : "1998"}
-    
-    let db1;
+describe('Get All Users', () => {
+  // dummy data
+  const user1 = { id: 1, username: 'testUser01', password: 'testPassword1', firstname: 'testMan', dob: '2000' }
+  const user2 = { id: 2, username: 'testUser02', password: 'testPassword2', firstname: 'testWomen', dob: '1998' }
 
-    beforeEach(() => {
-        db1 = new inMemoryUserDB();
-        db1.init();
-    })
+  let db1
 
-    test("should get all users", async () => {
-        expect(await ViewAllUsers(db1)).toEqual([{...user1}, {...user2}])
-    })
+  beforeEach(() => {
+    db1 = new InMemoryUserDB()
+    db1.init()
+  })
+
+  test('should get all users', async () => {
+    expect(await ViewAllUsers(db1)).toEqual([{ ...user1 }, { ...user2 }])
+  })
 })

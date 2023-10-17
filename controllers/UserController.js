@@ -24,9 +24,9 @@ module.exports = (database) => {
 
     if (!user) {
       res.status(404).json({ error: 'user not found' })
+    } else {
+      res.status(200).json(user)
     }
-
-    res.status(200).json(user)
   }
 
   const deleteUser = async (req, res) => {
@@ -38,9 +38,9 @@ module.exports = (database) => {
 
     if (!result) {
       res.status(404).json({ error: 'user not found' })
+    } else {
+      res.status(200).json({ success: 'user deleted' })
     }
-
-    res.status(200).json({ success: 'user deleted' })
   }
 
   const getUser = async (req, res) => {
@@ -52,9 +52,9 @@ module.exports = (database) => {
 
     if (!user) {
       res.status(404).json({ error: 'user not found' })
+    } else {
+      res.status(200).json(user)
     }
-
-    res.status(200).json(user)
   }
 
   const getAllUsers = async (req, res) => {
